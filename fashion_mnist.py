@@ -2,6 +2,7 @@ import tensorflow as tf
 from tensorflow import keras
 import numpy as np
 import matplotlib.pyplot as plt
+import os
 
 # Loading the data from keras
 data = keras.datasets.fashion_mnist
@@ -33,6 +34,9 @@ model.fit(train_images, train_labels, epochs=25, verbose=1)
 test_loss, test_acc = model.evaluate(test_images, test_labels, verbose=0)
 
 print("Tested accuracy: ", test_acc*100.0)
+
+projectId = os.environ['ProjectId']
+print(projectId)
 
 # Predict
 prediction = model.predict(test_images)
